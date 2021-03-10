@@ -43,15 +43,20 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Interfaces\ILeaseOption.cs" />
+    <Compile Include="Interfaces\ILeasePurchase.cs" />
+    <Compile Include="Interfaces\ILeaseReturn.cs" />
+    <Compile Include="Interfaces\IRentToOwnHomes.cs" />
+    <Compile Include="Models\CandidateNewAspiringHomeOwner.cs" />
+    <Compile Include="Models\CandidateWithGoodCreditScore.cs" />
+    <Compile Include="Models\CandidateWithSomeNonHousingDebt.cs" />
+    <Compile Include="Models\RentToOwnHomesModel.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Interfaces\" />
-    <Folder Include="Models\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
