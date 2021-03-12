@@ -6,29 +6,33 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-
 namespace AbstractClass
 {
-	abstract class Phone 
-    {
-        public void Call()
-        {
-            Console.WriteLine("Call Method: This method provides Calling features");
-        }
-        public abstract void Model();
-    }
-
-    class Program
+	// Main Class  
+	class Program 
     {
         static void Main(string[] args)
         {
+            // new iphone Instance, also calling methods
             IPhoneX iphone = new IPhoneX();
-
-            iphone.Call();
-            iphone.Model();
+            iphone.CallSmart();
+            iphone.SmartModel();
             iphone.LaunchDate();
+            iphone.OS();
+            iphone.AppStore();
+            iphone.VirtualAssistant();
 
+            // new samsung Instance, also calling methods
+            Samsung samsungZ = new Samsung();
+            samsungZ.CallSmart();
+            samsungZ.SmartModel();
+            samsungZ.LaunchDate();
+            samsungZ.OS();
+            samsungZ.AppStore();
+            samsungZ.VirtualAssistant();
+          
+   
             Console.ReadLine();
         }
-    }
+	}
 }
