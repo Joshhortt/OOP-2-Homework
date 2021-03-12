@@ -1,5 +1,7 @@
 ﻿// 05 - HOMEWORK - Abstract Classes part 1
-// Create Console Application with an Abstract Class.
+// Create Console Application with an Abstract Class, that has an Interface applied to it. 
+// When instantiating the child class store it using the interface type.
+
 using System;
 using System.Collections.Generic;
 using System.Linq;

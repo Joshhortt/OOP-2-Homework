@@ -1,6 +1,5 @@
 ﻿using System;
 
-
 namespace AbstractClass
 {
 	// Class IPhoneX with override methdos and one public void method, also inherits from Class AppleSmartPhone

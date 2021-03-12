@@ -1,7 +1,4 @@
-﻿// 05 - HOMEWORK - Abstract Classes part 1
-// Create Console Application with an Abstract Class.
-
-using System;
+﻿using System;
 
 namespace AbstractClass
 {
