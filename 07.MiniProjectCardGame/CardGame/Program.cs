@@ -19,9 +19,9 @@ namespace CardGame
 
 	public abstract class Deck  // 7. Abstract Class
 	{
-		protected List<PlayingCard> fullDeck = new List<PlayingCard>();  // 12.
-		protected List<PlayingCard> drawPile = new List<PlayingCard>();  // 13.
-		protected List<PlayingCard> discardPile = new List<PlayingCard>();  // 14.
+		protected List<PlayingCardModel> fullDeck = new List<PlayingCardModel>();  // 12.
+		protected List<PlayingCardModel> drawPile = new List<PlayingCardModel>();  // 13.
+		protected List<PlayingCardModel> discardPile = new List<PlayingCardModel>();  // 14.
 
 
 		protected void CreateDeck()  // 8. Method   // 34.  change from private to protected 
@@ -32,7 +32,7 @@ namespace CardGame
 			{
 				for (int val = 0; val < 13; val++)  // 16.
 				{
-					fullDeck.Add(new PlayingCard { Suit = (CardSuit)suit, Value = (int)(CardValue)val });    // 17.
+					fullDeck.Add(new PlayingCardModel { Suit = (CardSuit)suit, Value = (int)(CardValue)val });    // 17.
 				}
 			}
 		}
@@ -43,11 +43,11 @@ namespace CardGame
 			drawPile = fullDeck.OrderBy(x => rnd.Next()).ToList();  // 20. Lambda Expression OrderBy a number
 		}
 
-		public abstract List<PlayingCard> DealCards(); // 10. Abstract List
+		public abstract List<PlayingCardModel> DealCards(); // 10. Abstract List
 		
-		protected virtual PlayingCard DrawOneCard()  // 11.  public virtual method RequestCard  / 39. change public to protected & rename to 'DrawOneCard' (everywhere).
+		protected virtual PlayingCardModel DrawOneCard()  // 11.  public virtual method RequestCard  / 39. change public to protected & rename to 'DrawOneCard' (everywhere).
 		{
-			PlayingCard output = drawPile.Take(1).First();  // 21.
+			PlayingCardModel output = drawPile.Take(1).First();  // 21.
 			drawPile.Remove(output);   // 22.
 			return output;     // 23.
 		}
@@ -62,9 +62,9 @@ namespace CardGame
 			CreateDeck();   // 31.
 			ShuffleDeck();   // 32.
 		}
-		public override List<PlayingCard> DealCards()   // 25.
+		public override List<PlayingCardModel> DealCards()   // 25.
 		{
-			List<PlayingCard> output = new List<PlayingCard>();   // 26.
+			List<PlayingCardModel> output = new List<PlayingCardModel>();   // 26.
 
 			for (int i = 0; i < 5; i++)    // 27. Poker you get 5 cards
 			{
@@ -73,9 +73,9 @@ namespace CardGame
 			return output;    // 29.
 		}
 
-		public List<PlayingCard> RequestCards(List<PlayingCard> cardsToDiscard)   // 34.
+		public List<PlayingCardModel> RequestCards(List<PlayingCardModel> cardsToDiscard)   // 34.
 		{
-			List<PlayingCard> output = new List<PlayingCard>();     // 35.
+			List<PlayingCardModel> output = new List<PlayingCardModel>();     // 35.
 
 			foreach (var card in cardsToDiscard)   // 36.
 			{
@@ -88,9 +88,9 @@ namespace CardGame
 
 	public class BlackjackDeck : Deck  // 40.
 	{
-		public override List<PlayingCard> DealCards()  // 41. Create override automatically from 40.
+		public override List<PlayingCardModel> DealCards()  // 41. Create override automatically from 40.
 		{ 
-			List<PlayingCard> output = new List<PlayingCard>();   // 42.
+			List<PlayingCardModel> output = new List<PlayingCardModel>();   // 42.
 
 			for (int i = 0; i < 2; i++)    // 43. In Blackjack you get 2 cards
 			{
@@ -98,36 +98,5 @@ namespace CardGame
 			}
 			return output;    // 45.
 		}
-	}
-	
-	public class PlayingCard  // 2. Method
-	{
-		public CardSuit Suit { get; set; }  // 3. property
-		public int Value { get; set; }  // 4. property
-	}
-
-	public enum CardValue // 6. enum
-	{
-		Ace,
-		Two,
-		Three,
-		Four,
-		Five,
-		Six,
-		Seven,
-		Eight,
-		Nine,
-		Ten,
-		Jack,
-		Queen,
-		King
-	}
-
-	public enum CardSuit  // 5. enum
-	{
-			Hearts,
-			Clubs,
-			Diamonds,
-			Spades
 	}
 }
