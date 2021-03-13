@@ -5,6 +5,6 @@ namespace CardGame
 	public class PlayingCardModel  // 2. Method
 	{
 		public CardSuit Suit { get; set; }  // 3. property
-		public int Value { get; set; }  // 4. property
+		public CardValue Value { get; set; }  // 4. property
 	}
 }

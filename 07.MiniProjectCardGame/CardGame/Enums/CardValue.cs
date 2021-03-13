@@ -16,6 +16,6 @@ namespace CardGame
 		Ten,
 		Jack,
 		Queen,
-		King
+		King,
 	}
 }

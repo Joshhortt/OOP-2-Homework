@@ -12,6 +12,14 @@ namespace CardGame
 		static void Main(string[] args)
 		{
 			PokerDeck deck = new PokerDeck();  // 33.
+			//BlackjackDeck deck = new BlackjackDeck();  // 54.
+
+			var hand = deck.DealCards();  // 51. 
+
+			foreach(var card in hand)   // 52.
+			{
+				Console.WriteLine($" { card.Suit.ToString() } of { card.Value.ToString()}");  // 53.
+			}
 			
 			Console.ReadLine();  // 1.
 		}
@@ -32,7 +40,7 @@ namespace CardGame
 			{
 				for (int val = 0; val < 13; val++)  // 16.
 				{
-					fullDeck.Add(new PlayingCardModel { Suit = (CardSuit)suit, Value = (int)(CardValue)val });    // 17.
+					fullDeck.Add(new PlayingCardModel { Suit = (CardSuit)suit, Value = (CardValue)val });    // 17.
 				}
 			}
 		}
@@ -82,12 +90,18 @@ namespace CardGame
 				output.Add(DrawOneCard());    // 37.
 				discardPile.Add(card);   // 38.
 			}
-			return output;
+			return output;  // 39.
 		}	
 	}
 
 	public class BlackjackDeck : Deck  // 40.
 	{
+		public BlackjackDeck()  // 46. Create Constructor
+		{
+			CreateDeck();  // 47. 
+			ShuffleDeck();  // 48.
+		}
+
 		public override List<PlayingCardModel> DealCards()  // 41. Create override automatically from 40.
 		{ 
 			List<PlayingCardModel> output = new List<PlayingCardModel>();   // 42.
@@ -97,6 +111,11 @@ namespace CardGame
 				output.Add(DrawOneCard());    // 44.
 			}
 			return output;    // 45.
+		}
+
+		public PlayingCardModel RequestCard()  // 49.
+		{
+			return DrawOneCard();  // 50.
 		}
 	}
 }
