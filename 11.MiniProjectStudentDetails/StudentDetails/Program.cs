@@ -39,37 +39,4 @@ namespace StudentDetails
 			Console.ReadLine();
 		}
 	}
-
-	public class Mentor
-	{
-		public DateTime BirthDate { get; set; }
-		public string FirstName { get; set; }
-		public string LastName { get; set; }
-		public string GetName() => $"{LastName} {FirstName}";
-	}
-
-	public class Student : Mentor
-	{
-		public int StudentIdNumber { get; set; }
-	}
-
-	public static class Extensions
-	{
-		public static string GetNameWithBirthDate(this Mentor person)
-		{
-			return $"{person.BirthDate.ToString("yyy-MM-dd")} - {person.GetName()}";
-		}
-
-		public static string GetStudentInfo(this Student student)
-		{
-			return $"{student.GetName()} - ID: {student.StudentIdNumber}";
-		}
-
-		public static string GetInitials(this Student student)
-		=> $"Student: {student.LastName.ToCharArray()[0]}.{student.FirstName.ToCharArray()[0]}.";
-
-		public static string GetInitials(this Mentor person)
-			=> $"Mentor: {person.LastName.ToCharArray()[0]}.{person.FirstName.ToCharArray()[0]}.";
-	}
-
 }
